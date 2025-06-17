@@ -261,23 +261,69 @@ class Home extends StatelessWidget {
                   ],
                 ),
                 Gap(AppLayout.getHeight(context, 20)),
-                Row(
-                  children: [
-                    Container(
-                      height: AppLayout.getHeight(context, 100),
-                      
-                      decoration: BoxDecoration(
-                        color: Colors.orange,
-                        borderRadius: BorderRadius.circular(
-                          AppLayout.getHeight(context, 15),
-                        ),
-                      ),
-                      padding: EdgeInsets.symmetric(
-                        vertical: AppLayout.getHeight(context, 10),
-                        horizontal: AppLayout.getWidth(context, 30),
-                      ),
-                    ),
-                  ],
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      ...List.generate(7, (index) {
+                        return Container(
+                          margin: EdgeInsets.only(
+                            left:
+                                index == 0
+                                    ? 0
+                                    : AppLayout.getWidth(context, 15),
+                          ),
+                          height: AppLayout.getHeight(context, 120),
+                          decoration: BoxDecoration(
+                            color: index == 0 ? Colors.orange : Colors.white,
+                            borderRadius: BorderRadius.circular(
+                              AppLayout.getHeight(context, 15),
+                            ),
+                          ),
+                          padding: EdgeInsets.symmetric(
+                            vertical: AppLayout.getHeight(context, 10),
+                            horizontal: AppLayout.getWidth(context, 15),
+                          ),
+                          child: Column(
+                            children: [
+                              CircleAvatar(
+                                backgroundColor: Colors.white,
+                                child: Image.asset(
+                                  [
+                                    'assets/images/item7go.png',
+                                    'assets/images/chickenrepublic.png',
+                                    'assets/images/kfc.png',
+                                    'assets/images/dominos.png',
+                                    'assets/images/aroma.png',
+                                    'assets/images/amalasky.png',
+                                    'assets/images/ultima.png',
+                                  ][index],
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              Gap(AppLayout.getHeight(context, 10)),
+                              Text(
+                                [
+                                  'Item\n7go',
+                                  'Chicken\nRepublic',
+                                  'KFC',
+                                  'Dominos',
+                                  'Aroma',
+                                  'Amala\nSky',
+                                  'Ultima',
+                                ][index],
+                                style: Styles.headLineStyle4.copyWith(
+                                  color:
+                                      index == 0 ? Colors.white : Colors.black,
+                                  fontSize: AppLayout.getWidth(context, 10),
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      }),
+                    ],
+                  ),
                 ),
               ],
             ),
