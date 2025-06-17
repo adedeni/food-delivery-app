@@ -62,12 +62,10 @@ class Home extends StatelessWidget {
                             ),
                           ),
                           Gap(AppLayout.getWidth(context, 20)),
-                          Container(
-                            child: Icon(
-                              size: 14,
-                              color: Colors.grey.shade500,
-                              FluentSystemIcons.ic_fluent_search_regular,
-                            ),
+                          Icon(
+                            size: 14,
+                            color: Colors.grey.shade500,
+                            FluentSystemIcons.ic_fluent_search_regular,
                           ),
                         ],
                       ),
@@ -84,22 +82,26 @@ class Home extends StatelessWidget {
                   ),
                   child: Stack(
                     children: [
+                      Positioned(
+                        right: AppLayout.getWidth(context, 230),
+                        top: AppLayout.getHeight(context, 8),
+                        child: Image.asset(
+                          "assets/images/delivery.png",
+                          scale: 13,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
                       Padding(
                         padding: EdgeInsets.all(
                           AppLayout.getHeight(context, 10),
                         ),
                         child: Row(
                           children: [
-                            Image.asset(
-                              "assets/images/delivery.png",
-                              width: AppLayout.getWidth(context, 120),
-                              height: AppLayout.getHeight(context, 120),
-                              fit: BoxFit.contain,
-                            ),
-                            Gap(AppLayout.getWidth(context, 10)),
+                            Gap(AppLayout.getWidth(context, 90)),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                Gap(AppLayout.getHeight(context, 10)),
                                 Text(
                                   "Ileya Special",
                                   style: Styles.headLineStyle4.copyWith(
@@ -109,7 +111,7 @@ class Home extends StatelessWidget {
                                 ),
                                 Gap(AppLayout.getHeight(context, 5)),
                                 Text(
-                                  "Free ₦20 checkout voucher",
+                                  " Get free ₦20 checkout voucher",
                                   style: Styles.headLineStyle4.copyWith(
                                     fontSize: 9,
                                   ),
@@ -117,8 +119,8 @@ class Home extends StatelessWidget {
                                 Gap(AppLayout.getHeight(context, 10)),
                                 Container(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal: AppLayout.getWidth(context, 15),
-                                    vertical: AppLayout.getHeight(context, 9),
+                                    horizontal: AppLayout.getWidth(context, 12),
+                                    vertical: AppLayout.getHeight(context, 8),
                                   ),
                                   decoration: BoxDecoration(
                                     color: Colors.orange,
@@ -129,7 +131,7 @@ class Home extends StatelessWidget {
                                   child: Text(
                                     "Learn More",
                                     style: Styles.headLineStyle4.copyWith(
-                                      fontSize: 9,
+                                      fontSize: 8,
                                       color: Colors.white,
                                     ),
                                   ),
@@ -157,6 +159,7 @@ class Home extends StatelessWidget {
                           ),
                         ),
                       ),
+
                       Positioned(
                         bottom: -30,
                         right: 40,
@@ -322,6 +325,104 @@ class Home extends StatelessWidget {
                           ),
                         );
                       }),
+                    ],
+                  ),
+                ),
+                Gap(AppLayout.getHeight(context, 20)),
+                Row(
+                  children: [
+                    Text(
+                      "Menu",
+                      style: Styles.headLineStyle4.copyWith(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Stack(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(
+                          top: AppLayout.getHeight(context, 40),
+                        ),
+                        height: AppLayout.getHeight(context, 115),
+                        width: AppLayout.getWidth(context, 150),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(
+                            AppLayout.getHeight(context, 10),
+                          ),
+                        ),
+                        padding: EdgeInsets.all(
+                          AppLayout.getHeight(context, 10),
+                        ),
+                        child: Row(
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsGeometry.only(
+                                    top: AppLayout.getHeight(context, 10),
+                                  ),
+                                ),
+                                Gap(AppLayout.getHeight(context, 30)),
+                                Text(
+                                  'Jollof Rice',
+                                  style: Styles.headLineStyle4.copyWith(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: AppLayout.getWidth(context, 12),
+                                  ),
+                                ),
+                                Gap(AppLayout.getHeight(context, 4)),
+                                Row(
+                                  children: List.generate(5, (index) {
+                                    return Icon(
+                                      FluentSystemIcons.ic_fluent_star_filled,
+                                      size: AppLayout.getHeight(context, 12),
+                                      color:
+                                          index < 4
+                                              ? Colors.amber
+                                              : Colors.grey.shade300,
+                                    );
+                                  }),
+                                ),
+                                Gap(AppLayout.getHeight(context, 4)),
+                                Text(
+                                  "₦5,000",
+                                  style: Styles.textStyle.copyWith(
+                                    fontSize: AppLayout.getWidth(context, 11),
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Spacer(),
+
+                            CircleAvatar(
+                              radius: AppLayout.getHeight(context, 17),
+                              backgroundColor: Colors.orange,
+                              child: Text(
+                                "+",
+                                style: Styles.headLineStyle4.copyWith(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 50,
+                        child: Image.asset(
+                          "assets/images/jollof.png",
+                          scale: 5,
+                        ),
+                      ),
                     ],
                   ),
                 ),
