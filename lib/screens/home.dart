@@ -392,7 +392,7 @@ class Home extends StatelessWidget {
                               top: AppLayout.getHeight(context, 50),
                               right: AppLayout.getWidth(context, 15),
                             ),
-                            height: AppLayout.getHeight(context, 102),
+                            height: AppLayout.getHeight(context, 105),
                             width: AppLayout.getWidth(context, 150),
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -578,7 +578,7 @@ class Home extends StatelessWidget {
                                 fit: BoxFit.contain,
                               ),
                             ),
-                            Gap(AppLayout.getWidth(context, 5)),
+                            Gap(AppLayout.getWidth(context, 10)),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

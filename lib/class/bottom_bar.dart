@@ -44,8 +44,10 @@ class _BottomBarState extends State<BottomBar> {
               icon: FluentSystemIcons.ic_fluent_home_regular,
               currentIndex: _selectedIndex,
               itemIndex: 0,
+              
             ),
             label: 'Home',
+          
           ),
           BottomNavigationBarItem(
             icon: BottomBarIcon(
