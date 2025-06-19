@@ -33,42 +33,83 @@ class Home extends StatelessWidget {
                     ),
                     SizedBox(width: AppLayout.getWidth(context, 5)),
                     Text(
-                      "Hi, adedeni",
+                      "Adedeni",
                       style: Styles.headLineStyle4.copyWith(
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),
                     ),
                     Spacer(),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(
-                          AppLayout.getHeight(context, 15),
-                        ),
-                      ),
-
-                      padding: EdgeInsets.symmetric(
-                        horizontal: AppLayout.getWidth(context, 12),
-                        vertical: AppLayout.getHeight(context, 7),
-                      ),
-                      child: Row(
-                        children: [
-                          Text(
-                            "Search for food",
-                            style: Styles.headLineStyle4.copyWith(
-                              fontSize: 8,
-                              fontWeight: FontWeight.bold,
+                    Row(
+                      children: [
+                   
+                        Stack(
+                          children: [
+                            Icon(
+                              FluentSystemIcons.ic_fluent_alert_regular,
+                              size: 20,
+                              color: Colors.grey.shade500,
                             ),
-                          ),
-                          Gap(AppLayout.getWidth(context, 20)),
-                          Icon(
-                            size: 14,
-                            color: Colors.grey.shade500,
-                            FluentSystemIcons.ic_fluent_search_regular,
-                          ),
-                        ],
-                      ),
+                            Positioned(
+                              right: 0,
+                              top: 0,
+                              child: Container(
+                                padding: const EdgeInsets.all(1),
+                                decoration: BoxDecoration(
+                                  color: Colors.red,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                constraints: const BoxConstraints(
+                                  minWidth: 10,
+                                  minHeight: 10,
+                                ),
+                                child: Text(
+                                  '3', 
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 6,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Gap(AppLayout.getWidth(context, 20)),
+
+                        Stack(
+                          children: [
+                            Icon(
+                              FluentSystemIcons.ic_fluent_trophy_regular,
+                              size: 20,
+                              color: Colors.grey.shade500,
+                            ),
+                            Positioned(
+                              right: 0,
+                              top: 0,
+                              child: Container(
+                                padding: const EdgeInsets.all(1),
+                                decoration: BoxDecoration(
+                                  color: Colors.green,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                constraints: const BoxConstraints(
+                                  minWidth: 10,
+                                  minHeight: 10,
+                                ),
+                                child: Text(
+                                  '2', // 
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 6,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -342,89 +383,260 @@ class Home extends StatelessWidget {
                 ),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
-                  child: Stack(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(
-                          top: AppLayout.getHeight(context, 40),
-                        ),
-                        height: AppLayout.getHeight(context, 115),
-                        width: AppLayout.getWidth(context, 150),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(
-                            AppLayout.getHeight(context, 10),
-                          ),
-                        ),
-                        padding: EdgeInsets.all(
-                          AppLayout.getHeight(context, 10),
-                        ),
-                        child: Row(
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Row(
+                    children: List.generate(4, (index) {
+                      return Stack(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(
+                              top: AppLayout.getHeight(context, 50),
+                              right: AppLayout.getWidth(context, 15),
+                            ),
+                            height: AppLayout.getHeight(context, 102),
+                            width: AppLayout.getWidth(context, 150),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(
+                                AppLayout.getHeight(context, 10),
+                              ),
+                            ),
+                            padding: EdgeInsets.all(
+                              AppLayout.getHeight(context, 10),
+                            ),
+                            child: Row(
                               children: [
-                                Padding(
-                                  padding: EdgeInsetsGeometry.only(
-                                    top: AppLayout.getHeight(context, 10),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Gap(AppLayout.getHeight(context, 30)),
+                                    Text(
+                                      [
+                                        'Jollof Rice',
+                                        'Porridge',
+                                        'Amala',
+                                        'Moi moi',
+                                      ][index],
+                                      style: Styles.headLineStyle4.copyWith(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: AppLayout.getWidth(
+                                          context,
+                                          12,
+                                        ),
+                                      ),
+                                    ),
+                                    Gap(AppLayout.getHeight(context, 4)),
+                                    Row(
+                                      children: List.generate(5, (i) {
+                                        return Icon(
+                                          FluentSystemIcons
+                                              .ic_fluent_star_filled,
+                                          size: AppLayout.getHeight(
+                                            context,
+                                            12,
+                                          ),
+                                          color:
+                                              i < 4
+                                                  ? Colors.amber
+                                                  : Colors.grey.shade300,
+                                        );
+                                      }),
+                                    ),
+                                    Gap(AppLayout.getHeight(context, 4)),
+                                    Text(
+                                      [
+                                        '₦6,000',
+                                        '₦5,000',
+                                        '₦4,000',
+                                        '₦3,000',
+                                      ][index],
+                                      style: Styles.textStyle.copyWith(
+                                        fontSize: AppLayout.getWidth(
+                                          context,
+                                          11,
+                                        ),
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const Spacer(),
+                                Container(
+                                  margin: EdgeInsets.only(
+                                    top: AppLayout.getHeight(context, 50),
+                                  ),
+                                  child: CircleAvatar(
+                                    radius: AppLayout.getHeight(context, 17),
+                                    backgroundColor: Colors.orange,
+                                    child: Text(
+                                      "+",
+                                      style: Styles.headLineStyle4.copyWith(
+                                        color: Colors.white,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                                Gap(AppLayout.getHeight(context, 30)),
+                              ],
+                            ),
+                          ),
+                          Positioned(
+                            bottom: AppLayout.getHeight(context, 60),
+                            child: SizedBox(
+                              width: AppLayout.getWidth(context, 150),
+                              height: AppLayout.getHeight(context, 100),
+                              child: Image.asset(
+                                [
+                                  'assets/images/jollof.png',
+                                  'assets/images/porridge.png',
+                                  'assets/images/amala.png',
+                                  'assets/images/moimoi.png',
+                                ][index],
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
+                    }),
+                  ),
+                ),
+                Gap(AppLayout.getHeight(context, 20)),
+                Row(
+                  children: [
+                    Text(
+                      "Order",
+                      style: Styles.headLineStyle4.copyWith(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Spacer(),
+                    InkWell(
+                      onTap:
+                          () => {
+                            // print("tapped")
+                          },
+                      child: Row(
+                        children: [
+                          Text(
+                            "View All",
+                            style: Styles.headLineStyle4.copyWith(
+                              color: Colors.orange,
+                              fontSize: 10,
+                            ),
+                          ),
+                          Gap(AppLayout.getWidth(context, 5)),
+                          Container(
+                            height: AppLayout.getHeight(context, 20),
+                            width: AppLayout.getHeight(context, 20),
+                            padding: EdgeInsets.all(
+                              AppLayout.getWidth(context, 2),
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(
+                                AppLayout.getWidth(context, 5),
+                              ),
+                              color: Colors.orange,
+                            ),
+                            child: Icon(
+                              FluentSystemIcons.ic_fluent_arrow_forward_regular,
+                              color: Colors.white,
+                              size: 10,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                Gap(AppLayout.getHeight(context, 20)),
+                Column(
+                  children: [
+                    ...List.generate(2, (index) {
+                      return Container(
+                        height: 50,
+                        width: double.infinity,
+                        margin: EdgeInsets.all(5),
+
+                        child: Row(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                color:
+                                    index == 0
+                                        ? const Color(0xFFA0BCED)
+                                        : const Color(0xFFFFE9CC),
+                                borderRadius: BorderRadius.circular(
+                                  AppLayout.getHeight(context, 10),
+                                ),
+                              ),
+                              child: Image.asset(
+                                [
+                                  'assets/images/porridge.png',
+                                  'assets/images/amala.png',
+                                ][index],
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                            Gap(AppLayout.getWidth(context, 5)),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
                                 Text(
-                                  'Jollof Rice',
+                                  ['Porridge', 'Amala'][index],
                                   style: Styles.headLineStyle4.copyWith(
-                                    color: Colors.black,
                                     fontWeight: FontWeight.bold,
+                                    color: Colors.black,
                                     fontSize: AppLayout.getWidth(context, 12),
                                   ),
                                 ),
-                                Gap(AppLayout.getHeight(context, 4)),
-                                Row(
-                                  children: List.generate(5, (index) {
-                                    return Icon(
-                                      FluentSystemIcons.ic_fluent_star_filled,
-                                      size: AppLayout.getHeight(context, 12),
-                                      color:
-                                          index < 4
-                                              ? Colors.amber
-                                              : Colors.grey.shade300,
-                                    );
-                                  }),
-                                ),
-                                Gap(AppLayout.getHeight(context, 4)),
                                 Text(
-                                  "₦5,000",
-                                  style: Styles.textStyle.copyWith(
-                                    fontSize: AppLayout.getWidth(context, 11),
+                                  ['x2', 'x1'][index],
+                                  style: Styles.headLineStyle4.copyWith(
                                     fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                    fontSize: AppLayout.getWidth(context, 12),
                                   ),
                                 ),
                               ],
                             ),
                             Spacer(),
-
-                            CircleAvatar(
-                              radius: AppLayout.getHeight(context, 17),
-                              backgroundColor: Colors.orange,
-                              child: Text(
-                                "+",
-                                style: Styles.headLineStyle4.copyWith(
-                                  color: Colors.white,
-                                ),
+                            Text(
+                              ['₦10,000', '₦4,000'][index],
+                              style: Styles.headLineStyle4.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: AppLayout.getWidth(context, 12),
                               ),
                             ),
                           ],
                         ),
-                      ),
-                      Positioned(
-                        bottom: 50,
-                        child: Image.asset(
-                          "assets/images/jollof.png",
-                          scale: 5,
+                      );
+                    }),
+                    Gap(AppLayout.getHeight(context, 10)),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.orange,
+                        borderRadius: BorderRadius.circular(
+                          AppLayout.getHeight(context, 25),
                         ),
                       ),
-                    ],
-                  ),
+                      padding: EdgeInsets.symmetric(
+                        vertical: AppLayout.getHeight(context, 10),
+                        horizontal: AppLayout.getWidth(context, 100),
+                      ),
+
+                      child: Text(
+                        "Checkout",
+                        style: Styles.headLineStyle4.copyWith(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 10,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
