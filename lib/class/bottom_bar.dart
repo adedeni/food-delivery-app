@@ -20,7 +20,7 @@ class _BottomBarState extends State<BottomBar> {
 
   static final List<Widget> _widgetOptions = <Widget>[
     const Home(),
-    const Chats(),
+    const FacebookScreen(),
     const Wallets(),
     const Order(),
     const Settings(),
